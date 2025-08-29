@@ -1,5 +1,7 @@
 import { Button } from "./components/button"
 
+import "./style.css"
+
 
 
 export function App(){
@@ -9,7 +11,7 @@ export function App(){
   "encaixotando o componente dentro de uma tag div(ou um elemento fragment <>"vazio", por exemplo.), por exemplo."
   */
   return (
-    <div>
+    <div className="container">
       <Button name="Criar" onClick={() => alert("Criar")}/>
       <Button name="Editar"/>
       <Button name="Remover"/>
