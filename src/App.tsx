@@ -1,3 +1,5 @@
+import "./global.css" // a ordem importa. se ele vir depois do "style.css" pode acabar sobrepondo.
+
 import { Button } from "./components/button"
 
 import "./style.css"
