@@ -1,6 +1,6 @@
-type Props = {
+//Agora estamos passando as propriedades nativas que ja vem com o buttom, incluindo o "onClick" através do gerenic
+type Props = React.ComponentProps<"button"> & {
   name: string
-  onClick?: () => void
 }
 
 /*
@@ -16,11 +16,6 @@ export function Button(props: Props) {
 
 //Passando Métodos no Componente
 
-/*
-Aprenda a passar métodos como propriedades para componentes React. 
-Veja como criar uma prop onClick opcional que recebe uma função,
- repassá-la para um botão nativo e executá-la, demonstrando a flexibilidade na comunicação entre componentes.
-*/
 export function Button({ name, onClick }: Props) {
   return <button onClick={onClick}>{name}</button>
 }
