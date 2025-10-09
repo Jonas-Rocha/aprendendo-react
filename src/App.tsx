@@ -1,5 +1,5 @@
 import "./global.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./components/button";
 import styles from "./app.module.css";
 // import { useMessage } from "./hooks/useMessage"
@@ -10,6 +10,13 @@ export function App() {
 
   // const { show } = useMessage({name: "Jonas", age: 27})
   // const { show } = useMessage()
+
+
+
+    useEffect(() => {
+        console.log("Oi!") // toda vez que eu atualizar a tela, ele vai disparar o console.log("Oi!")
+
+    }, []) //Dois parametros, 1 - a lógica, 2 - as dependencias. se não tem nenhuma dependencia(array vazio), significa que vai executar uma vez só(toda vez que o componente for renderizado).
 
   return (
     <div className={styles.container}>
