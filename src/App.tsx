@@ -1,22 +1,23 @@
-import "./global.css" // a ordem importa. se ele vir depois do "style.css" pode acabar sobrepondo.
-
+import "./global.css"
 import { Button } from "./components/button"
+import styles from "./app.module.css"
+import { useMessage } from "./hooks/useMessage"
 
-import "./style.css"
 
 
 
-export function App(){
-  /*
-  Eu não poderia colocar dois button no return pois existe uma regra onde
-  não se pode ter mais de um elemento pai, por isso podemos resolver isso
-  "encaixotando o componente dentro de uma tag div(ou um elemento fragment <>"vazio", por exemplo.), por exemplo."
-  */
-  return (
-    <div className="container">
-      <Button name="Criar" onClick={() => alert("Criar")}/>
-      <Button name="Editar"/>
-      <Button name="Remover"/>
-    </div>
-  )
+
+
+export function App() {
+    const message = useMessage({name: "Jonas", age: 27})
+
+    return (
+
+            <div className={styles.container}>
+                <Button name="Adicionar" onClick={() => message.show()}/>
+                <span>0</span>
+                <Button name="Remover"/>
+            </div>
+
+    )
 }
