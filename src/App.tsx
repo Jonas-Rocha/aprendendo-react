@@ -2,13 +2,13 @@ import "./global.css";
 import { useState, useEffect } from "react";
 import { Button } from "./components/button";
 import styles from "./app.module.css";
-// import { useMessage } from "./hooks/useMessage"
+import { useMessage } from "./hooks/useMessage"
 
 export function App() {
   const [count /*estado*/, setCount /*função que atualiza o estado*/] =
     useState(0);
 
-  // const { show } = useMessage({name: "Jonas", age: 27})
+  const message = useMessage({name: "Jonas", age: 27})
   // const { show } = useMessage()
 
 
