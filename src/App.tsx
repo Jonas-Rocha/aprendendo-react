@@ -2,21 +2,34 @@ import "./global.css";
 import { useState, useEffect } from "react";
 import { Button } from "./components/button";
 import styles from "./app.module.css";
-import { useMessage } from "./hooks/useMessage"
+// import { useMessage } from "./hooks/useMessage"
 
 export function App() {
   const [count /*estado*/, setCount /*função que atualiza o estado*/] =
     useState(0);
 
-  const message = useMessage({name: "Jonas", age: 27})
+  // const message = useMessage({name: "Jonas", age: 27})
   // const { show } = useMessage()
+
+    function handleAdd() {
+        setCount((prevState) => prevState + 1)
+    }
+
+
+    function handleRemove() {
+      if (count > 0)
+      setCount((prevState) => prevState - 1)
+    }
 
 
 
     useEffect(() => {
-        console.log("Oi!") // toda vez que eu atualizar a tela, ele vai disparar o console.log("Oi!")
+      if (count > 0) {
+        console.log("O valor mudou para" + count)
+      }
+         
 
-    }, []) //Dois parametros, 1 - a lógica, 2 - as dependencias. se não tem nenhuma dependencia(array vazio), significa que vai executar uma vez só(toda vez que o componente for renderizado).
+    }, [count]) //Dois parametros, 1 - a lógica, 2 - as dependencias. se não tem nenhuma dependencia(array vazio), significa que vai executar uma vez só(toda vez que o componente for renderizado).
 
   return (
     <div className={styles.container}>
@@ -24,7 +37,7 @@ export function App() {
       <Button
         name="Adicionar"
         onClick={() => {
-          setCount(count + 1);
+         handleAdd()
         }}
       />
       <span>{count}</span>
@@ -32,7 +45,7 @@ export function App() {
       <Button
         name="Remover"
         onClick={() => {
-          setCount(count - 1);
+          handleRemove()
         }}
       />
     </div>
